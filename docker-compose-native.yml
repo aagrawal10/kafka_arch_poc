@@ -1,0 +1,13 @@
+version: '2'
+services:
+  producer_topic_1:
+    image: kafka_arch_poc:latest
+    command: "producer_topic_1"
+
+  consumer_topic_1:
+    image: kafka_arch_poc:latest
+    command: "consumer_topic_1"
+
+  consumer_topic_2:
+    image: kafka_arch_poc:latest
+    command: "consumer_topic_2"

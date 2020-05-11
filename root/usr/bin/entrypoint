@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -e
+
+function run_faust() {
+    python /code/faust_client.py
+}
+
+function run_producer_1() {
+    python /code/kafka_client.py producer_topic_1
+}
+
+function run_consumer_1() {
+    python /code/kafka_client.py consumer_topic_1
+}
+
+function run_consumer_2() {
+    python /code/kafka_client.py consumer_topic_2
+}
+
+# if parameters specified check parameters, otherwise start the server
+if [ -n "$1" ]; then
+    case ${1} in
+        faust)
+            run_faust
+            ;;
+        producer_topic_1)
+            run_producer_1
+            ;;
+        consumer_topic_1)
+            run_consumer_1
+            ;;
+        consumer_topic_2)
+            run_consumer_2
+            ;;
+        help|--help)
+            echo 'Usage: docker run <image_name> <faust/native>'
+            ;;
+        *)
+            # otherwise try to execute command
+            eval $@
+            ;;
+    esac
+else
+  run_faust
+fi

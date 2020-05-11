@@ -22,4 +22,4 @@ RUN set -x && pip install -r requirements.txt
 COPY root /
 WORKDIR /code/
 
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "/usr/bin/entrypoint" ]

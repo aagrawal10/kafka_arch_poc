@@ -1,13 +1,5 @@
 version: '2'
 services:
-  producer_topic_1:
-    image: kafta_arch_poc:latest
-    command: "/code/kafka_client.py producer_topic_1"
-
-  consumer_topic_1:
-    image: kafta_arch_poc:latest
-    command: "/code/kafka_client.py consumer_topic_1"
-
-  consumer_topic_2:
-    image: kafta_arch_poc:latest
-    command: "/code/kafka_client.py consumer_topic_2"
+  faust:
+    image: kafka_arch_poc:latest
+    command: "faust"
