@@ -7,7 +7,7 @@ from kafka import KafkaConsumer, KafkaProducer
 
 BROKERS = '192.168.2.105:32775,192.168.2.105:32776'
 
-producer = KafkaProducer(bootstrap_servers=BROKERS, value_serializer=lambda v: json.dumps(v).encode('utf-8'), api_version=(2, 4, 1))
+producer = KafkaProducer(bootstrap_servers=BROKERS, value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 TOPIC_1 = 'test_topic_native_1'
 TOPIC_2 = 'test_topic_native_2'
 
@@ -29,7 +29,7 @@ def run_producer_topic_1():
 
 def run_consumer_topic_1():
     print('Starting consumer topic 1', flush=True)
-    consumer = KafkaConsumer(TOPIC_1, group_id='1', bootstrap_servers=BROKERS, api_version=(2, 4, 1))
+    consumer = KafkaConsumer(TOPIC_1, group_id='1', bootstrap_servers=BROKERS)
     for msg in consumer:
         print(f'Topic: {msg.topic} Partition: {msg.partition} Key: {msg.key} Value: {msg.value}', flush=True)
         value = json.loads(msg.value.decode('utf-8'))
@@ -41,7 +41,7 @@ def run_consumer_topic_1():
 
 def run_consumer_topic_2():
     print('Starting consumer topic 2', flush=True)
-    consumer = KafkaConsumer(TOPIC_2, group_id='1', bootstrap_servers=BROKERS, api_version=(2, 4, 1))
+    consumer = KafkaConsumer(TOPIC_2, group_id='1', bootstrap_servers=BROKERS)
     for msg in consumer:
         print(f'Topic: {msg.topic} Partition: {msg.partition} Key: {msg.key} Value: {msg.value}', flush=True)
 
