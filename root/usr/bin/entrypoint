@@ -2,7 +2,7 @@
 set -e
 
 function run_faust() {
-    python /code/faust_client.py
+    faust -A faust_client worker -l info
 }
 
 function run_producer_1() {
