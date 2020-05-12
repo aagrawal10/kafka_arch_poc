@@ -1,6 +1,6 @@
 import faust
 
-BROKERS = '192.168.2.105:32775,192.168.2.105:32776'
+BROKERS = 'kafka://192.168.2.105:32777'
 
 
 class Greeting(faust.Record):
