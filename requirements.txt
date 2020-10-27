@@ -10,7 +10,7 @@ colorclass==2.2.0
 colorlog==4.1.0
 contextvars==2.4
 croniter==0.3.31
-cryptography==2.1.4
+cryptography==3.2
 faust==1.10.4
 idna==2.6
 idna-ssl==1.1.0
